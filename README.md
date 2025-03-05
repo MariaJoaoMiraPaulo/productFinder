@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# Salsify Product Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This application is a dynamic product filtering interface designed to filter products based on their properties. The core challenge was to create a condition editor that allows users to filter a set of products by selecting properties, operators, and values.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Tailwind CSS
+- Headless UI
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development Process
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Time Spent
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Estimated development time: 4-5 hours
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Technical Architecture
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Components
+
+1. **ProductFinder**:
+
+   - Main container component
+   - Manages overall state of filtering
+   - Renders FilterGroup and Table components
+
+2. **FilterGroup**:
+
+   - Handles filter condition creation
+   - Provides dropdowns for:
+     - Property selection
+     - Operator selection
+     - Value input
+   - Manages filter state and propagates changes to parent component
+
+3. **DropdownMenu**:
+
+   - Reusable dropdown component
+   - Supports selection of properties and operators
+   - Uses Headless UI for accessibility and styling
+
+4. **ValueDropdown**:
+   - Handles value input for different property types
+   - Supports enumerated and text/number inputs
+
+### Data Flow
+
+1. User selects a property
+2. Available operators are filtered based on property type
+3. User selects an operator
+4. Value input is dynamically rendered depending on operator (if required)
+5. Filter is applied to the product list in real-time
+
+## Running the project
+
+### Prerequisites
+
+- Node.js (v20)
+- npm (v10)
+
+### Installation
+
+1. Clone the repository
+2. Run `npm install`
+3. Start the development server with `npm run dev`
+
+## Potential Enhancements
+
+- Persisting filters in the URL, which would allow users to:
+  - Copy and share specific filter states
+  - Navigate between different filter configurations
+  - Maintain filter state after page refreshes
+- Add filter combination logic (AND/OR)
+- Implement more advanced filtering operators
+- Create comprehensive test suite
