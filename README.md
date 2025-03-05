@@ -1,8 +1,8 @@
-# Salsify Product Finder
+# Product Finder
 
 ## Project Overview
 
-This application is a dynamic product filtering interface designed to filter products based on their properties. The core challenge was to create a condition editor that allows users to filter a set of products by selecting properties, operators, and values.
+This application is a dynamic product filtering interface designed to filter products based on their properties.
 
 ## Technologies Used
 
@@ -24,7 +24,7 @@ This application is a dynamic product filtering interface designed to filter pro
 
 1. **ProductFinder**:
 
-   - Main container component
+   - Main wrapper component
    - Manages overall state of filtering
    - Renders FilterGroup and Table components
 
@@ -41,11 +41,39 @@ This application is a dynamic product filtering interface designed to filter pro
 
    - Reusable dropdown component
    - Supports selection of properties and operators
-   - Uses Headless UI for accessibility and styling
+   - Uses [Listbox](https://headlessui.com/react/listbox#listbox-selected-option) from Headless UI for accessibility and styling
 
 4. **ValueDropdown**:
    - Handles value input for different property types
    - Supports enumerated and text/number inputs
+
+### Methods
+
+1. **normalizeProducts**
+
+- Transforms raw product data into a standardized product format
+- Input:
+  - An array of raw products
+  - An array of property definitions
+- Output:
+  - An array of normalized products with consistent property names
+
+2. **getPropertyKey**
+
+- Converts a human-readable property name to its corresponding key
+- Input:
+  - A property name as a string
+- Output:
+  - The matching key for the Product name
+
+2. **filterProducts**
+
+- Filters an array of products based on specified criteria
+- Input:
+  - An array of products
+  - A filter object with property, operator, and value
+- Output:
+  - Filtered array of products matching the specified filter
 
 ### Data Flow
 
@@ -76,6 +104,7 @@ This application is a dynamic product filtering interface designed to filter pro
   - Maintain filter state after page refreshes
 - Add filter combination logic (AND/OR)
 - Implement more advanced filtering operators
+- Use a ui library for Table (instead of raw html) with preset styling
 - Create comprehensive test suite
 
 ## Dependencies:
