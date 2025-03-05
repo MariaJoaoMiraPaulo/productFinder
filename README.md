@@ -77,3 +77,17 @@ This application is a dynamic product filtering interface designed to filter pro
 - Add filter combination logic (AND/OR)
 - Implement more advanced filtering operators
 - Create comprehensive test suite
+
+## Dependencies:
+
+If new properties are added, the mapping should be updated with the new property names.
+
+```
+const PropertyNameMapping: Record<string, keyof Product> = {
+  "Product Name": "productName",
+  color: "color",
+  "weight (oz)": "weight",
+  category: "category",
+  wireless: "wireless",
+};
+```
