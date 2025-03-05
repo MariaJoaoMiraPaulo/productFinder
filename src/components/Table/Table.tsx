@@ -6,12 +6,11 @@ interface TableProps {
 
 const Table = ({ products }: TableProps) => {
   return (
-    <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">Product List</h2>
+    <div className="mt-6">
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-200 rounded-lg">
           <thead>
-            <tr className="bg-gray-100 border-b border-gray-300">
+            <tr className="border-b text-amber-100 bg-amber-900 border-gray-300">
               <th className="px-4 py-2 text-left">Product Name</th>
               <th className="px-4 py-2 text-left">Category</th>
               <th className="px-4 py-2 text-left">Color</th>

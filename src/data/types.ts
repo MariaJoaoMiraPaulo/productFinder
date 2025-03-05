@@ -25,12 +25,12 @@ export type Property = {
 };
 
 export type Operator = {
-  id: number;
+  id: string;
   text: string;
 };
 
 export type Filter = {
   property: Property;
   operator: Operator;
-  value: string | number | string[];
+  value: string | number | null;
 };
